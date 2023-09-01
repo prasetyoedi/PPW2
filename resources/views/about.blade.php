@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <h1 class="title">Halaman About</h1>
-    <h1>{{ $name }}</h1>
-    <h1>{{ $email }}</h1>
-
+    <h1 class="title">Halaman About</h1><br>
+    <h1> Nama : {{ $name }}</h1>
+    <h1> Email : {{ $email }}</h1>
     <script src="js/script.js"></script>
 </body>
+
 </html>

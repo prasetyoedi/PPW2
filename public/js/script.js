@@ -1,1 +1,1 @@
-alert("halo")
+alert('Selamat datang di website Assets UGM');
