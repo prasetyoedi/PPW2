@@ -1,1 +1,1 @@
-alert("halo")
+alert('Selamat datang di Halaman About!');
