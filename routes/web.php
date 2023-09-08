@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::get('/about', function () {
 });
 
 Route::get('/boom', [PostController::class, 'boomsport']);
+
+Route::get('/akademik', [AkademikController::class, 'akademik']);
