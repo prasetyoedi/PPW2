@@ -49,6 +49,10 @@
                 @endforeach
             </tbody>
         </table>
+
+        <p>Jumlah data yang Anda miliki adalah {{ count($data_buku) }} </p>
+
+        <p>jumlah total harga semua buku adalah {{"Rp " .number_format($totalharga, 2, ',', '.' )}} </p>
     </div>
 </body>
 

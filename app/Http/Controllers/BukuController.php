@@ -14,7 +14,10 @@ class BukuController extends Controller
     public function index()
     {
         $data_buku = Buku::all();
-        return view('buku', compact('data_buku'));
+        $no=0;
+        $totalharga = Buku::sum('harga');
+
+        return view('buku', compact('data_buku', 'totalharga'));
     }
 
     /**
