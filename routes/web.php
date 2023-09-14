@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AkademikController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,13 +20,15 @@ Route::get('/', function () {
     return view('page');
 });
 
-Route::get('/about', function () {
-    return view('about', [
-        "name" => "Prasetyo Edi",
-        "email" => "prasetyoedi@gmail.com",
-    ]);
-});
+// Route::get('/about', function () {
+//     return view('about', [
+//         "name" => "Prasetyo Edi",
+//         "email" => "prasetyoedi@gmail.com",
+//     ]);
+// });
 
-Route::get('/boom', [PostController::class, 'boomsport']);
+// Route::get('/boom', [PostController::class, 'boomsport']);
 
-Route::get('/akademik', [AkademikController::class, 'akademik']);
+// Route::get('/akademik', [AkademikController::class, 'akademik']);
+
+Route::get('/buku', [BukuController::class, 'index']);
