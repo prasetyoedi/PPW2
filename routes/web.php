@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AkademikController;
-use App\Http\Controllers\PostController;
+// use App\Http\Controllers\AkademikController;
+// use App\Http\Controllers\PostController;
 use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +15,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+
+Route::get('/buku', [BukuController::class, 'index']);
+Route::get('/buku/create', [BukuController::class, 'create'])->name('buku.create');
+Route::post('/buku', [BukuController::class, 'store'])->name('buku.store');
+
+
+Route::post('/buku/delete/{id}', [BukuController::class, 'destroy'])->name('buku.destroy');
+
+Route::get('/buku/{id}/edit', [BukuController::class, 'edit'])->name('buku.edit');
+Route::post('/buku/update/{id}', [BukuController::class, 'update'])->name('buku.update');
+
 
 Route::get('/', function () {
     return view('page');
@@ -30,5 +43,3 @@ Route::get('/', function () {
 // Route::get('/boom', [PostController::class, 'boomsport']);
 
 // Route::get('/akademik', [AkademikController::class, 'akademik']);
-
-Route::get('/buku', [BukuController::class, 'index']);
