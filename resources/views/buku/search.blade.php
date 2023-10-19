@@ -4,19 +4,25 @@
 @if(session('pesan'))
 <div class="alert alert-success">
     {{ session('pesan') }}
-</div>
-@endif
-
-<div class="container">
+</div> @endif <div class="container">
     <form action="{{ route('buku.search') }}" method="GET">@csrf
         <input type="text" name="kata" class="form-control" placeholder="Cari..." style="width: 30%;
         display: inline; margin-top: 10px; margin-bottom: 10px; float: right;">
     </form>
-    <a href="{{ route('buku.create') }}"> <button type="button" class="btn btn-primary mb-5"> Tambah
-            Buku Baru </button>
-    </a>
 
-    <table class="table table-striped">
+    @if(count($data_buku))
+    <div class="alert alert-success">
+        Ditemukan <b> {{count($data_buku)}}</b> dengan kata <b>{{$cari}}</b>
+    </div>
+    <a href="/buku" class="btn btn-info">Kembali</a>
+    @else
+    <div class="alert alert-warning">
+        <h4>Data {{($data_buku)}} dengan kata {{$cari}} tidak ditemukan</h4>
+        <a href="/buku" class="btn btn-warning">Kembali</a>
+    </div>
+    @endif
+
+    <table class="table table-striped mt-5">
         <thead>
             <tr>
                 <th>id</th>
@@ -46,7 +52,8 @@
                 <td>
                     <form action="{{ route('buku.destroy', $buku->id) }}" method="post">
                         @csrf
-                        <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin mau dihapus?');">Hapus</button>
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('yakin mau
+                    dihapus?');">Hapus</button>
                     </form>
                 </td>
             </tr>
@@ -56,5 +63,7 @@
 
 
     <div class="d-flex justify-content-center">{{ $data_buku->links() }}</div>
-    <div>Jumlah Buku : {{$jumlah_buku}}</div>
+    <!-- <div>Jumlah Buku : {{$jumlah_buku}}</div> -->
+
+
 </div>

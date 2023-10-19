@@ -2,6 +2,13 @@
 
 <div class="container">
     <h4 class="mt-5 mb-5">Edit Buku</h4>
+    @if(count($errors) > 0)
+    <ul>
+        @foreach($errors->all() as $error)
+            <li class="alert alert-danger">{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
     <form method="POST" action="{{route('buku.update', $buku->id)}}">
         @csrf
         <div class="row">
